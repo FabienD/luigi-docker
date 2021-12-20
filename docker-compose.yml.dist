@@ -1,0 +1,38 @@
+services:
+
+  dockerproxy:
+    image: tecnativa/docker-socket-proxy
+    container_name: luigi-docker-proxy
+    environment:
+      - AUTH=1
+      - POST=1
+      - BUILD=1
+      - IMAGES=1
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+  python:
+    container_name: luigi-docker
+    depends_on:
+      - dockerproxy
+    image: myprod/py:3.10
+    user: 1000:1000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.luigi.rule=Host(`luigi.myprod.local`)"
+      - "traefik.http.routers.luigi.entrypoints=web"
+    env_file: .env
+    command: poetry run luigid --logdir /var/www/logs
+    volumes:
+      - .:/var/www/
+    ports:
+      - 8082:8082
+#    logging:
+#      driver: loki
+#      options:
+#        loki-url: "http://loki.myprod.local/loki/api/v1/push"
+
+networks:
+  default:
+    external: true
+    name: myprod_dev
