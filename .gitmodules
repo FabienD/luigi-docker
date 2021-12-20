@@ -1,0 +1,3 @@
+[submodule "docker-hub"]
+	path = docker-hub
+	url = https://github.com/FabienD/docker-hub.git
