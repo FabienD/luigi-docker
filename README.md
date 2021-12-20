@@ -19,17 +19,20 @@ Sub directory is optional.
 
 ## Run tasks command
 
-Build PHP 7.4 image, and push it to Docker repository.
-
-    python -m luigi --module task_php_image PushImage --version 7.4 --date '2021-12-18'
+Build PHP 8.1 image, and push it to Docker repository.
+    
+    # Fpm image
+    python -m luigi --module task_php_image Push --version 8.1 --sub fpm --date '2021-12-18'
 
     # Dev image
-    python -m luigi --module task_php_image PushImage --version 7.4 -sub dev --date '2021-12-18'
+    python -m luigi --module task_php_image Push --version 8.1 -sub dev --date '2021-12-18'
 
     # Cli iaage
-    python -m luigi --module task_php_image PushImage --version 7.4 -sub cli --date '2021-12-18'
+    python -m luigi --module task_php_image Push --version 8.1 -sub cli --date '2021-12-18'
 
 
 Build the Python 3.10 image, and push it to Docker repository.
 
-    python -m luigi --module task_python_image PushImage --version 7.4 --date '2021-12-18'
+    python -m luigi --module task_python_image Push --version 3.10 --date '2021-12-18'
+
+Push task has a dependency task, the Build task. Before running the Push task luigi executes the Push task.
