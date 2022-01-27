@@ -19,20 +19,29 @@ Sub directory is optional.
 
 ## Run tasks command
 
+Inside docker container : 
+
+    docker-compose exec python bash
+
+Inside the project python environment,
+
+    poetry shell
+
+
 Build PHP 8.1 image, and push it to Docker repository.
     
     # Fpm image
-    python -m luigi --module task_php_image Push --version 8.1 --sub fpm --date '2021-12-18'
+    python -m luigi --module task_php_images Push --version 8.1 --sub fpm --date '2021-12-18'
 
     # Dev image
-    python -m luigi --module task_php_image Push --version 8.1 -sub dev --date '2021-12-18'
+    python -m luigi --module task_php_images Push --version 8.1 -sub dev --date '2021-12-18'
 
-    # Cli iaage
-    python -m luigi --module task_php_image Push --version 8.1 -sub cli --date '2021-12-18'
+    # Cli image
+    python -m luigi --module task_php_images Push --version 8.1 -sub cli --date '2021-12-18'
 
 
 Build the Python 3.10 image, and push it to Docker repository.
 
     python -m luigi --module task_python_image Push --version 3.10 --date '2021-12-18'
 
-Push task has a dependency task, the Build task. Before running the Push task luigi executes the Push task.
+Push task has a dependency task, the Build task. Before running the Push task luigi executes the Build task.
