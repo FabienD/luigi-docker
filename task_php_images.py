@@ -6,6 +6,9 @@ from tasks.generic_task import (
 class Push(PushImage):
     image = 'php'
 
+    def requires(self):
+        return Build(version=self.version, sub=self.sub, date=self.date)
+
 class Build(BuildImage):
     image = 'php'
 

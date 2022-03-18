@@ -31,17 +31,17 @@ Inside the project python environment,
 Build PHP 8.1 image, and push it to Docker repository.
     
     # Fpm image
-    python -m luigi --module task_php_images Push --version 8.1 --sub fpm --date '2021-12-18'
+    python -m luigi --module task_php_images Push --version 8.1 --sub fpm --date '2022-03-18'
 
     # Dev image
-    python -m luigi --module task_php_images Push --version 8.1 -sub dev --date '2021-12-18'
+    python -m luigi --module task_php_images Push --version 8.1 --sub dev --date '2022-03-18'
 
     # Cli image
-    python -m luigi --module task_php_images Push --version 8.1 -sub cli --date '2021-12-18'
+    python -m luigi --module task_php_images Push --version 8.1 ---ub cli --date '2022-03-18'
 
 
 Build the Python 3.10 image, and push it to Docker repository.
 
-    python -m luigi --module task_python_image Push --version 3.10 --date '2021-12-18'
+    python -m luigi --module task_python_images Push --version 3.10 --date '2022-03-18'
 
 Push task has a dependency task, the Build task. Before running the Push task luigi executes the Build task.
