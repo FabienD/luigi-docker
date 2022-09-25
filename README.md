@@ -16,20 +16,22 @@ Sub directory is optional.
 
     [image]/Dockerfile
 
-
 ## Run tasks command
 
-Inside docker container : 
+Start the docker-compose of the project, 
 
-    docker-compose exec python bash
+    docker compose up -d
+
+go inside the python container,
+
+    docker compose exec python bash
 
 Inside the project python environment,
 
     poetry shell
 
-
 Build PHP 8.1 image, and push it to Docker repository.
-    
+
     # Fpm image
     python -m luigi --module task_php_images Push --version 8.1 --sub fpm --date '2022-03-18'
 

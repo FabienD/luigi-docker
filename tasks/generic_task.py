@@ -69,6 +69,7 @@ class BuildImage(ImageTask):
                 tag=f'{os.getenv("DOCKER_REPOSITORY")}/{self.image_name}:{self.tag}',
                 forcerm=True,
                 nocache=True,
+                pull=True,
             )
 
             out_file.write(image.id)
