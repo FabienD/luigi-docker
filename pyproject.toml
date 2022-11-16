@@ -2,13 +2,13 @@
 name = "luigi-docker"
 version = "0.1.0"
 description = "A simple docker build workflow"
-authors = ["Fabien D."]
+authors = ["Fabien D. <fabien@myprod.net>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-luigi = "^3.0.3"
-docker = "^5.0.3"
-dependency-injector = "^4.37.0"
+luigi = "^3.1.1"
+docker = "^6.0.0"
+dependency-injector = "^4.40.0"
 
 [tool.poetry.dev-dependencies]
 
