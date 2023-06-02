@@ -15,7 +15,7 @@ services:
     container_name: luigi-docker
     depends_on:
       - dockerproxy
-    image: myprod/py:3.10
+    image: myprod/py:3.11
     user: 1000:1000
     labels:
       - "traefik.enable=true"
