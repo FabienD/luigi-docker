@@ -30,25 +30,25 @@ Inside the project python environment,
 
     poetry shell
 
-Build PHP 8.1 image, and push it to Docker repository.
+Build PHP 8.2 images, and push it to Docker repository.
 
     # Fpm image
-    python -m luigi --module task_php_images Push --version 8.1 --sub fpm --date '2022-03-18'
+    python -m luigi --module task_php_images Push --version 8.2 --sub fpm --date '2023-09-29'
 
     # Dev image
-    python -m luigi --module task_php_images Push --version 8.1 --sub dev --date '2022-03-18'
+    python -m luigi --module task_php_images Push --version 8.2 --sub dev --date '2023-09-29'
 
     # Cli image
-    python -m luigi --module task_php_images Push --version 8.1 ---sub cli --date '2022-03-18'
+    python -m luigi --module task_php_images Push --version 8.2 ---sub cli --date '2023-09-29'
 
 
-Build the Python 3.10 image, and push it to Docker repository.
+Build the Python 3.11 image, and push it to Docker repository.
 
-    python -m luigi --module task_python_images Push --version 3.10 --date '2022-03-18'
+    python -m luigi --module task_python_images Push --version 3.11 --date '2023-09-29'
 
-Build the PostgreSQL 14 image from TimescaleDB with Replibyte tool, and push it to Docker repository.
+Build the PostgreSQL 15 image from TimescaleDB with Replibyte tool, and push it to Docker repository.
 
-    python -m luigi --module task_db_images Push --version pg.14 --date '2022-03-18'
+    python -m luigi --module task_db_images Push --version pg.15 --date '2023-09-29'
 
 
 Push task has a dependency task, the Build task. Before running the Push task luigi executes the Build task.
