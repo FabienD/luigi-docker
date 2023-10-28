@@ -1,5 +1,7 @@
 # Docker build images workflow in Python
 
+<NOT NEED ANYMORE - JUST TO PLAY WITH LUIGI - USE DOCKER MULTI-STAGE BUILD + GITHUB ACTION OR CIRCLE CI FOR EXAMPLE>
+
 Since docker hub stopped building images for free accounts, I've been looking for another way to do it.
 I could have used simple shell scripts, but that's too simple and not fun. 
 So I found a way to continue playing with Python by using a library I heard about a few weeks ago.
